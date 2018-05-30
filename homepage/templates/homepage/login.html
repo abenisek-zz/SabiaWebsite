@@ -1,0 +1,15 @@
+<!doctype>
+<html>
+  <head>
+    <h1>Login Page</h1>
+  </head>
+  <body>
+    <form action  = "submit/" method = "POST">
+      {%csrf_token%}
+      {{form.as_p}}
+      <button type  = "submit"> Login </button>
+    </form>
+  </body>
+
+
+</html>

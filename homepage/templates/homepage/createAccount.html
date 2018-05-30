@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang = "en">
+  <head>
+
+  </head>
+  <body>
+    <form action = "submit/" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Create Account</button>
+    </form>
+  </body>
+</html>

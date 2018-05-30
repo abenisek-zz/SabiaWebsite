@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <title>Hello, @World!</title>
+  </head>
+  <body>
+    <h1>TutorForm</h1>
+        <form action="send/" method="POST">
+          <div class="form-group">
+            {% csrf_token %}
+            {{form.as_p}}
+            <label>First Name</label>
+            <input type="tutorForm" class="form-control" id="tutorFN" aria-describedby="emailHelp" placeholder="Enter First Name">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="tutorForm" class="form-control" id="tutorLN" placeholder="Last Name">
+          </div>
+          {{form.errors}}
+          {{form.non_field_errors}}
+          <button id="submitTutorForm" class="btn btn-primary">Submit</button>
+        </form>
+      <button id="submit">JQuery</button>
+      <button id="homepageButton"  type="button"><a href='/'>TutorForm</a></button>
+
+
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="tutorForm.js"></script>
+    <script src="../static/tutorForm.js"></script>
+
+
+  </body>
+</html>
