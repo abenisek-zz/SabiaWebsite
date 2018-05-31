@@ -43,29 +43,7 @@ class LoginView(TemplateView):
 
 
 
-def submitTutorForm(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = TutorForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            #first_name = form.cleaned_data['first_name
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            age = form.cleaned_data['age']
-            user = AccountUserTemp(first_name = first_name, last_name = last_name, age = 19)
-            user.save()
-            # redirect to a new URL:
-            return HttpResponseRedirect('/allTutors')
-        else:
-            print("not valid")
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = TutorForm()
-    return render(request, 'homepage/tutorFormBasic.html',{'form':form})
 '''
 def login(request):
     if request.method == 'post'
@@ -141,6 +119,7 @@ def login(request):
             user = (UserLogin.objects.filter(Username = username))[0]
             if(user):
                 if(user.Password == password):
+                    return
                     return render(request, 'homepage/dashboard.html', {'user': user.UserID})
                 else:
                     print('bad password')
@@ -155,3 +134,27 @@ def login(request):
     else:
         form = LoginForm()
     return render(request, 'homepage/login.html', {'form':form})
+
+def submitTutorForm(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = TutorForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            #first_name = form.cleaned_data['first_name
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            age = form.cleaned_data['age']
+            user = AccountUserTemp(first_name = first_name, last_name = last_name, age = 19)
+            user.save()
+            # redirect to a new URL:
+            return HttpResponseRedirect('/allTutors')
+        else:
+            print("not valid")
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = TutorForm()
+    return render(request, 'homepage/tutorFormBasic.html',{'form':form})

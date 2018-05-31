@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x$#%ow6=wlphj#2$ezp#(v=e_si1g#irh_z(l7pm2_tlg_w=j5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost','sabia-matching.herokuapp.com']
 
@@ -33,8 +33,9 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost','sabia-matching.herokuapp.com']
 
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -124,4 +125,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/Users/spatel/Desktop/SabiaWebsite/SabiaWebsite/static/'
+STATIC_ROOT = '/Users/spatel/SabiaWebsite/SabiaWebsite/static/'

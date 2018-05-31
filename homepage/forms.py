@@ -19,7 +19,7 @@ class TutorForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length = 150)
-    password = forms.CharField(max_length = 150)
+    password = forms.CharField(widget=forms.PasswordInput())
 
 class CreateAccountForm(forms.Form):
     first_name = forms.CharField(max_length=150)
