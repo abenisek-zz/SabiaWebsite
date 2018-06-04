@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^allTutors/$',views.AllTutorsView.as_view()),
     url(r'^createAccount/$',views.CreateAccountView.as_view()),
     url(r'^createAccount/submit/$',views.createAccount),
+    url(r'^instructorInfo/$',views.instructorInfo),
     url(r'^login/$', views.LoginView.as_view()),
     url(r'^login/submit/$', views.login),
     url(r'^dashboard/$', views.DashboardView.as_view())

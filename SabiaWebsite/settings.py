@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost','sabia-matching.herokuapp.com']
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'django.contrib.auth',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

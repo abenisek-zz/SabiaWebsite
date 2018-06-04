@@ -108,6 +108,8 @@ def createAccount(request):
         form = CreateAccountForm()
     return render(request, 'homepage/createAccount.html',{'form' : form})
 
+def instructorInfo():
+    console.log("mama we made it")
 def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -119,8 +121,8 @@ def login(request):
             user = (UserLogin.objects.filter(Username = username))[0]
             if(user):
                 if(user.Password == password):
-                    return
-                    return render(request, 'homepage/dashboard.html', {'user': user.UserID})
+                    print("hopefully doing this")
+                    return render(request, 'homepage/dashboard.html', {'user': user.UserID, 'userType':str(user.UserTypeID)})
                 else:
                     print('bad password')
             else:
