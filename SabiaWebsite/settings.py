@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost','sabia-matching.herokuapp.com']
 
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
+    'datetimewidget',
     'django.contrib.auth',
     #'django.contrib.sites',
     'django.contrib.admin',
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'SabiaWebsite.urls'
@@ -119,10 +121,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/Users/spatel/SabiaWebsite/SabiaWebsite/SabiaWebsite/static/',
+]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/Users/spatel/SabiaWebsite/SabiaWebsite/static/'
+STATIC_ROOT = '/Users/spatel/SabiaWebsite/SabiaWebsite/SabiaWebsite'

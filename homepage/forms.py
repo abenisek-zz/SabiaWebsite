@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from datetimewidget.widgets import DateTimeWidget
 
 LOCATIONS ={}
 for l in Location.objects.all():
@@ -10,6 +11,10 @@ PhoneTypes = {}
 for t in PhoneType.objects.all():
     PhoneTypes[t.id] = t.PhoneType
 phoneTypesTup = tuple(PhoneTypes.items())
+
+class AvailabilityForm(forms.Form):
+    start = forms.DateTimeField(widget = forms.SplitDateTimeWidget())
+    end = forms.DateTimeField(widget = DateTimeWidget(usel10n=True))
 
 
 class TutorForm(forms.Form):

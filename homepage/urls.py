@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^instructorInfo/$',views.instructorInfo),
     url(r'^login/$', views.LoginView.as_view()),
     url(r'^login/submit/$', views.login),
-    url(r'^dashboard/$', views.DashboardView.as_view())
+    url(r'^dashboard/$', views.DashboardView.as_view()),
+    url(r'^addAvailability/$', views.AddAvailabilityView.as_view()),
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

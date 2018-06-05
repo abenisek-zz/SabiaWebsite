@@ -1,8 +1,6 @@
-
-
 $(document).ready(function () {
-  alert("hello");
-    $("#submit").click( function(event) {
+  alert("hello!!$$$$$");
+    $("#hola").click( function(event) {
         var tutorFN = $("#tutorFN").val();
         var tutorLN = $("tutorLN").val();
         alert("First name: "+tutorFN);

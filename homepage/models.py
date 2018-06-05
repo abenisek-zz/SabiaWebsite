@@ -10,16 +10,10 @@ class AccountUserTemp(models.Model):
     def __str__(self):
         return self.first_name + " " +self.last_name
 
+class Availability(models.Model):
+    start = models.DateTimeField()
+    end = models.DateTimeField()
 
-class User(models.Model):
-    FirstName = models.CharField(max_length = 200)
-    LastName = models.CharField(max_length =200)
-    Age = models.IntegerField()
-    Address = models.CharField(max_length = 200)
-    LocationID = models.ForeignKey('Location', on_delete = models.CASCADE)
-    PhoneID = models.ForeignKey('Phone', on_delete = models.CASCADE)
-    def __str__(self):
-        return self.FirstName + " " +self.LastName
 
 
 '''
@@ -52,6 +46,19 @@ class SessionStatus(models.Model):
 
 class Subjects(models.Model):
     SubjectName = models.CharField(max_length=150)
+
+
+class User(models.Model):
+    FirstName = models.CharField(max_length = 200)
+    LastName = models.CharField(max_length =200)
+    Age = models.IntegerField()
+    Address = models.CharField(max_length = 200)
+    LocationID = models.ForeignKey('Location', on_delete = models.CASCADE)
+    PhoneID = models.ForeignKey('Phone', on_delete = models.CASCADE)
+    Availability = models.ForeignKey('Availability', on_delete = models.CASCADE, null = True)
+    def __str__(self):
+        return self.FirstName + " " +self.LastName
+
 
 class UserLogin(models.Model):
     Username = models.EmailField(max_length = 150)

@@ -8,6 +8,7 @@ from .models import *
 # Register your models here.
 
 admin.site.register(AccountUserTemp)
+admin.site.register(Availability)
 admin.site.register(PhoneType)
 admin.site.register(User)
 admin.site.register(Phone)

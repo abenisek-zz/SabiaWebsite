@@ -10,6 +10,11 @@ from django.template import loader
 from .forms import *
 
 # Create your views here.
+class AddAvailabilityView(TemplateView):
+    def get(self,request,**kwargs):
+        form = AvailabilityForm()
+        Availability = request.session.get('user').Availability
+        return render(request, 'homepage/addAvailability.html',{'form':form})
 class AllTutorsView(TemplateView):
     def get(self, request, **kwargs):
         tutorList = AccountUserTemp.objects.all()
@@ -122,6 +127,7 @@ def login(request):
             if(user):
                 if(user.Password == password):
                     print("hopefully doing this")
+                    request.session['user']=user.UserID
                     return render(request, 'homepage/dashboard.html', {'user': user.UserID, 'userType':str(user.UserTypeID)})
                 else:
                     print('bad password')
