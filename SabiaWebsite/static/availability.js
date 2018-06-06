@@ -9,14 +9,18 @@ $(document).ready(function () {
   });
   $('#addSession').click(function(event){
     var date = $('#datepicker').data("DateTimePicker").date().format('YYYY-MM-DD');
-    var time_start = $('#timestartpicker').data("DateTimePicker").date().format('HH:MM');
-    var time_end  = $('#timeendpicker').data("DateTimePicker").date().format('HH:MM');
+    var time_start = $('#timestartpicker').data("DateTimePicker").date().format('HH:mm');
+    var time_end  = $('#timeendpicker').data("DateTimePicker").date().format('HH:mm');
 
     console.log(date);
     $.ajax({
       type:"POST",
       url: "submit/",
       data: { CSRF: csrftoken, 'date': date, 'time_start': time_start, 'time_end' : time_end},
+      success: function(data){
+        window.location.href = "dashboard/";
+      }
+
     });
   });
 });

@@ -11,18 +11,11 @@ class AccountUserTemp(models.Model):
         return self.first_name + " " +self.last_name
 
 class Availability(models.Model):
-    start = models.DateTimeField()
-    end = models.DateTimeField()
+    User= models.ForeignKey('User', on_delete = models.CASCADE, null = True)
+    Start = models.DateTimeField()
+    End = models.DateTimeField()
     def __str__(self):
-        return self.start
-
-
-
-'''
-class ScheduledSession(models.Model):
-    SubjectID = models.ForeignKey('Subjects',on_delete=models.CASCADE)
-'''
-
+        return str(self.Start)
 
 class Email(models.Model):
     Email = models.EmailField(max_length=200)
@@ -57,7 +50,7 @@ class User(models.Model):
     Address = models.CharField(max_length = 200)
     LocationID = models.ForeignKey('Location', on_delete = models.CASCADE)
     PhoneID = models.ForeignKey('Phone', on_delete = models.CASCADE)
-    Availability = models.ForeignKey('Availability', on_delete = models.CASCADE, null = True)
+    UserTypeID = models.ForeignKey('UserType', on_delete = models.CASCADE, null = True)
     def __str__(self):
         return self.FirstName + " " +self.LastName
 
@@ -67,7 +60,7 @@ class UserLogin(models.Model):
     #use the forms password widget when making the form input thing
     Password = models.CharField(max_length =100)
     UserID = models.ForeignKey('User', on_delete = models.CASCADE)
-    UserTypeID = models.ForeignKey('UserType', on_delete = models.CASCADE)
+
     def __str__ (self):
         return self.Username
 

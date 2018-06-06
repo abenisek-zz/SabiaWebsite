@@ -26,6 +26,11 @@ class CreateAccountView(TemplateView):
 
 class DashboardView(TemplateView):
     def get(self, request, **kwargs):
+        user = request.session.get('user')
+        availability = Availability.objects.filter(User = user.id)
+        if user:
+            print(availability)
+            return render(request, 'homepage/dashboard.html', {'availability':availability, 'user':user,'userType':str(user.UserTypeID)})
         return render(request, 'homepage/dashboard.html')
 
 
@@ -44,22 +49,6 @@ class LoginView(TemplateView):
         return render (request, 'homepage/login.html',{'form': form})
 
 
-
-
-
-'''
-def login(request):
-    if request.method == 'post'
-        form = UserLoginForm(request.POST)
-        if form.is_valid():
-
-
-        else:
-            print('Not valid')
-    else:
-        form = UserLoginForm()
-
-'''
 def addAvailability (request):
     if request.method == 'POST':
         date = request.POST.get('date')
@@ -69,10 +58,11 @@ def addAvailability (request):
         end = date + " "+ time_end
         print(start)
         print(end)
-        availabilityTable = request.session.get('user').Availability
-        availabilityTable = Availability(start =start, end = end)
+        user = request.session.get('user')
+        availabilityTable = Availability(Start =start, End = end, User = user)
         availabilityTable.save()
-        return HttpResponseRedirect('/')
+    return render(request, 'homepage/dashboard.html',{'user': request.session.get('user')})
+
 def createAccount(request):
     if request.method =='POST':
         print("in create account")
@@ -140,7 +130,8 @@ def login(request):
                 if(user.Password == password):
                     print("hopefully doing this")
                     request.session['user']=user.UserID
-                    return render(request, 'homepage/dashboard.html', {'user': user.UserID, 'userType':str(user.UserTypeID)})
+                    availability = Availability.objects.filter(User = user.UserID)
+                    return render(request, 'homepage/dashboard.html', {'user': user.UserID, 'userType':str(user.UserID.UserTypeID),'availability':availability})
                 else:
                     print('bad password')
             else:
@@ -153,6 +144,11 @@ def login(request):
 
     else:
         form = LoginForm()
+    return render(request, 'homepage/login.html', {'form':form})
+
+def logout(request):
+    request.session.flush()
+    form = LoginForm()
     return render(request, 'homepage/login.html', {'form':form})
 
 def submitTutorForm(request):

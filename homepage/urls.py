@@ -11,13 +11,16 @@ urlpatterns = [
     url(r'^tutorForm/send/$', views.submitTutorForm),
     url(r'^addAvailability/$', views.AddAvailabilityView.as_view()),
     url(r'^addAvailability/submit/$',views.addAvailability),
+    url(r'^addAvailability/dashboard/$',views.DashboardView.as_view()),
     url(r'^allTutors/$',views.AllTutorsView.as_view()),
     url(r'^createAccount/$',views.CreateAccountView.as_view()),
     url(r'^createAccount/submit/$',views.createAccount),
     url(r'^instructorInfo/$',views.instructorInfo),
     url(r'^login/$', views.LoginView.as_view()),
     url(r'^login/submit/$', views.login),
+    url(r'^logout/$', views.logout),
     url(r'^dashboard/$', views.DashboardView.as_view()),
+
 
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
