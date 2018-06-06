@@ -12,8 +12,7 @@ from .forms import *
 # Create your views here.
 class AddAvailabilityView(TemplateView):
     def get(self,request,**kwargs):
-        form = AvailabilityForm()
-        return render(request, 'homepage/addAvailability.html',{'form':form})
+        return render(request, 'homepage/addAvailability.html')
 class AllTutorsView(TemplateView):
     def get(self, request, **kwargs):
         tutorList = AccountUserTemp.objects.all()

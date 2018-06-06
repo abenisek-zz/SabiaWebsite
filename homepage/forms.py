@@ -11,15 +11,6 @@ for t in PhoneType.objects.all():
     PhoneTypes[t.id] = t.PhoneType
 phoneTypesTup = tuple(PhoneTypes.items())
 
-class AvailabilityForm(forms.Form):
-    todo = forms.CharField(
-        widget=forms.TextInput(attrs={"class": "form-control"}))
-    date = forms.DateField(
-        widget=DateTimePicker(options={"format": "YYYY-MM-DD"}))
-    reminder = forms.DateTimeField(
-        required=False,
-        widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm"}))
-
 
 class TutorForm(forms.Form):
     first_name = forms.CharField(max_length = 100)
