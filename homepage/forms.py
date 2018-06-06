@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from datetimewidget.widgets import DateTimeWidget
+from bootstrap3_datetime.widgets import DateTimePicker
 
 LOCATIONS ={}
 for l in Location.objects.all():
@@ -13,8 +13,13 @@ for t in PhoneType.objects.all():
 phoneTypesTup = tuple(PhoneTypes.items())
 
 class AvailabilityForm(forms.Form):
-    start = forms.DateTimeField(widget = forms.SplitDateTimeWidget())
-    end = forms.DateTimeField(widget = DateTimeWidget(usel10n=True))
+    todo = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    date = forms.DateField(
+        widget=DateTimePicker(options={"format": "YYYY-MM-DD"}))
+    reminder = forms.DateTimeField(
+        required=False,
+        widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm"}))
 
 
 class TutorForm(forms.Form):

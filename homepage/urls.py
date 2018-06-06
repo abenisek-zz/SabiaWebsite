@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'^$', views.HomePageView.as_view()),
     url(r'^tutorForm/$', views.SubmitTutorFormPageView.as_view()),
     url(r'^tutorForm/send/$', views.submitTutorForm),
+    url(r'^addAvailability/$', views.AddAvailabilityView.as_view()),
+    url(r'^addAvailability/submit/$',views.addAvailability),
     url(r'^allTutors/$',views.AllTutorsView.as_view()),
     url(r'^createAccount/$',views.CreateAccountView.as_view()),
     url(r'^createAccount/submit/$',views.createAccount),
@@ -16,6 +18,6 @@ urlpatterns = [
     url(r'^login/$', views.LoginView.as_view()),
     url(r'^login/submit/$', views.login),
     url(r'^dashboard/$', views.DashboardView.as_view()),
-    url(r'^addAvailability/$', views.AddAvailabilityView.as_view()),
+
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

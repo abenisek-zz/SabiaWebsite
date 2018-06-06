@@ -13,7 +13,6 @@ from .forms import *
 class AddAvailabilityView(TemplateView):
     def get(self,request,**kwargs):
         form = AvailabilityForm()
-        Availability = request.session.get('user').Availability
         return render(request, 'homepage/addAvailability.html',{'form':form})
 class AllTutorsView(TemplateView):
     def get(self, request, **kwargs):
@@ -60,7 +59,21 @@ def login(request):
             print('Not valid')
     else:
         form = UserLoginForm()
+
 '''
+def addAvailability (request):
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        time_start = request.POST.get('time_start')
+        time_end = request.POST.get('time_end')
+        start = date + " " + time_start
+        end = date + " "+ time_end
+        print(start)
+        print(end)
+        availabilityTable = request.session.get('user').Availability
+        availabilityTable = Availability(start =start, end = end)
+        availabilityTable.save()
+        return HttpResponseRedirect('/')
 def createAccount(request):
     if request.method =='POST':
         print("in create account")

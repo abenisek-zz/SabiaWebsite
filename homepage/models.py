@@ -13,6 +13,8 @@ class AccountUserTemp(models.Model):
 class Availability(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
+    def __str__(self):
+        return self.start
 
 
 
