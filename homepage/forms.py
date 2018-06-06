@@ -1,6 +1,5 @@
 from django import forms
 from .models import *
-from bootstrap3_datetime.widgets import DateTimePicker
 
 LOCATIONS ={}
 for l in Location.objects.all():
