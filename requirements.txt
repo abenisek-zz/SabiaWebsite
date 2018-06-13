@@ -27,4 +27,5 @@ six==1.11.0
 stevedore==1.28.0
 toml==0.9.4
 xattr==0.6.4
+whitenoise==3.3.1
 zope.interface==4.1.1
