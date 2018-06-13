@@ -137,4 +137,6 @@ STATICFILES_FINDERS = [
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/Users/spatel/SabiaWebsite/SabiaWebsite/SabiaWebsite'
+STATIC_ROOT = 'SabiaWebsite/'
+
+#STATIC_ROOT = '/Users/spatel/SabiaWebsite/SabiaWebsite/SabiaWebsite'
