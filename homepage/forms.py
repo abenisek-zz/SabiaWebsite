@@ -11,6 +11,11 @@ for t in PhoneType.objects.all():
     PhoneTypes[t.id] = t.PhoneType
 phoneTypesTup = tuple(PhoneTypes.items())
 
+SUBJECTS = {}
+for s in Subject.objects.all():
+    SUBJECTS[s.id] = s.SubjectName
+subjectsTup = tuple(SUBJECTS.items())
+
 
 class TutorForm(forms.Form):
     first_name = forms.CharField(max_length = 100)
@@ -32,3 +37,6 @@ class CreateAccountForm(forms.Form):
     location = forms.ChoiceField(label = "Location",choices = locationsTup, widget = forms.Select(), required = True)
     phone_type = forms.ChoiceField(choices = phoneTypesTup, widget = forms.Select())
     phone_number = forms.CharField(max_length=50)
+
+class SubjectForm(forms.Form):
+    subject = forms.ChoiceField(choices = subjectsTup, widget = forms.Select())

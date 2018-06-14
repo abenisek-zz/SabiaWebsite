@@ -39,9 +39,16 @@ class Location(models.Model):
 class SessionStatus(models.Model):
     Status = models.CharField(max_length = 200)
 
-class Subjects(models.Model):
-    SubjectName = models.CharField(max_length=150)
+class Subject_User(models.Model):
+    User= models.ForeignKey('User', on_delete = models.SET_NULL, null = True)
+    Subject = models.ForeignKey('Subject', on_delete = models.SET_NULL, null = True)
+    def __str__(self):
+        return self.User.FirstName + " "+ self.Subject.SubjectName
 
+class Subject(models.Model):
+    SubjectName = models.CharField(max_length=150, null = True)
+    def __str__(self):
+        return self.SubjectName
 
 class User(models.Model):
     FirstName = models.CharField(max_length = 200)
@@ -60,7 +67,6 @@ class UserLogin(models.Model):
     #use the forms password widget when making the form input thing
     Password = models.CharField(max_length =100)
     UserID = models.ForeignKey('User', on_delete = models.CASCADE)
-
     def __str__ (self):
         return self.Username
 

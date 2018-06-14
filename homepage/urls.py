@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^login/submit/$', views.login),
     url(r'^logout/$', views.logout),
     url(r'^dashboard/$', views.DashboardView.as_view()),
-
-
+    url(r'^dashboard/addSubject/$', views.AddSubjectView.as_view()),
+    url(r'^dashboard/addSubject/submit/$', views.addSubject),
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

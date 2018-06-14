@@ -13,6 +13,12 @@ from .forms import *
 class AddAvailabilityView(TemplateView):
     def get(self,request,**kwargs):
         return render(request, 'homepage/addAvailability.html')
+
+class AddSubjectView(TemplateView):
+    def get(self,request,**kwargs):
+        form = SubjectForm()
+        return render(request, 'homepage/addSubject.html',{'form':form})
+
 class AllTutorsView(TemplateView):
     def get(self, request, **kwargs):
         tutorList = AccountUserTemp.objects.all()
@@ -63,6 +69,20 @@ def addAvailability (request):
         availabilityTable.save()
     return render(request, 'homepage/dashboard.html',{'user': request.session.get('user')})
 
+def addSubject(request):
+    if request.method == 'POST':
+        form=SubjectForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            print(subject)
+            su = Subject_User(
+                User = request.session.get('user'),
+                Subject = Subject.objects.get(pk =subject)
+            )
+            su.save()
+            return HttpResponseRedirect('/dashboard')
+    return HttpResponseRedirect('/dashboard/addSubject')
+
 def createAccount(request):
     if request.method =='POST':
         print("in create account")
@@ -92,7 +112,8 @@ def createAccount(request):
                 Age = age,
                 Address = address,
                 LocationID = Location.objects.get(pk = location),
-                PhoneID = Phone.objects.get(pk = phone.id)
+                PhoneID = Phone.objects.get(pk = phone.id),
+                UserTypeID = UserType.objects.get(pk = 1)
             )
 
             user.save()
@@ -101,7 +122,6 @@ def createAccount(request):
                 Username = email,
                 Password = password,
                 UserID = user,
-                UserTypeID = UserType.objects.get(pk = 1)
             )
 
             userLogin.save()
@@ -117,6 +137,7 @@ def createAccount(request):
 
 def instructorInfo():
     console.log("mama we made it")
+
 def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -131,25 +152,24 @@ def login(request):
                     print("hopefully doing this")
                     request.session['user']=user.UserID
                     availability = Availability.objects.filter(User = user.UserID)
-                    return render(request, 'homepage/dashboard.html', {'user': user.UserID, 'userType':str(user.UserID.UserTypeID),'availability':availability})
+                    return HttpResponseRedirect('/dashboard', {'user': user.UserID, 'userType':str(user.UserID.UserTypeID),'availability':availability})
                 else:
-                    print('bad password')
+                    return HttpResponseRedirect('/login')
+                    #return render(request, 'homepage/login.html', {'form':form})
             else:
-                form = LoginForm()
-                return render(request, 'homepage/login.html', {'form':form})
-
+                return HttpResponseRedirect('/login')
 
         else:
             print("form not valid")
 
     else:
         form = LoginForm()
-    return render(request, 'homepage/login.html', {'form':form})
+        return HttpResponseRedirect('/login')
 
 def logout(request):
     request.session.flush()
     form = LoginForm()
-    return render(request, 'homepage/login.html', {'form':form})
+    return HttpResponseRedirect('/login')
 
 def submitTutorForm(request):
     # if this is a POST request we need to process the form data
