@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  alert(" inside the outside");
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
       beforeSend: function(xhr, settings) {

@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^dashboard/$', views.DashboardView.as_view()),
     url(r'^dashboard/addSubject/$', views.AddSubjectView.as_view()),
     url(r'^dashboard/addSubject/submit/$', views.addSubject),
+    url(r'^dashboard/aboutUs/$',views.AboutUsView.as_view()),
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

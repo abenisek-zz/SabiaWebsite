@@ -6,6 +6,9 @@ $(document).ready(function () {
   $('#instructor_info').click(function(event){
     window.location.href="addAvailability/"
   })
+  $('#about_us').click(function(event){
+    window.location.href="aboutUs/"
+  })
   $.ajaxSetup({
       beforeSend: function(xhr, settings) {
           if (!csrfSafeMethod(settings.type) && !this.crossDomain) {

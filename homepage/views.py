@@ -30,6 +30,11 @@ class CreateAccountView(TemplateView):
         form = CreateAccountForm()
         return render(request, 'homepage/createAccount.html',{'form':form})
 
+class AboutUsView(TemplateView):
+    def get(self, request, **kwargs):
+        return render (request,'homepage/aboutUs.html')
+
+
 class DashboardView(TemplateView):
     def get(self, request, **kwargs):
         user = request.session.get('user')
