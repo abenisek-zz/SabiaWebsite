@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^$', views.HomePageView.as_view()),
     url(r'^tutorForm/$', views.SubmitTutorFormPageView.as_view()),
     url(r'^tutorForm/send/$', views.submitTutorForm),
-    url(r'^addAvailability/$', views.AddAvailabilityView.as_view()),
+    url(r'^dashboard/addAvailability/$', views.AddAvailabilityView.as_view()),
     url(r'^addAvailability/submit/$',views.addAvailability),
     url(r'^addAvailability/dashboard/$',views.DashboardView.as_view()),
     url(r'^allTutors/$',views.AllTutorsView.as_view()),

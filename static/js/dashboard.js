@@ -1,8 +1,11 @@
 $(document).ready(function () {
   var csrftoken = getCookie('csrftoken');
-  $('#addSubject').click(function(event){
+  $('#add_subject').click(function(event){
       window.location.href="addSubject/"
   });
+  $('#instructor_info').click(function(event){
+    window.location.href="addAvailability/"
+  })
   $.ajaxSetup({
       beforeSend: function(xhr, settings) {
           if (!csrfSafeMethod(settings.type) && !this.crossDomain) {

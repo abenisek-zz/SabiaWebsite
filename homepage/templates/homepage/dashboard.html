@@ -32,8 +32,8 @@
 <body>
   <button id= "schedule_session" type = "button"><a href = '/scheduleSession'>Scheduled a session</a></button>
   {% if userType == "Instructor" %}
-    <button id = "instructor_info" type = "button"><a href = '/addAvailability'>Add availability</a></button>
-    <button id = "addSubject" type = "button"> Add Subject </button>
+    <button id = "instructor_info" type = "button">Add availability</button>
+    <button id = "add_subject" type = "button"> Add Subject </button>
   {% endif %}
 
   {% if availability %}
