@@ -11,3 +11,5 @@ fork the repository over from ShivamPatel17/SabiaWebsite
 3. any requirements that fail to install, go ahead and install them using sudo
 
 4. you're good to go! change directory where the file manage.py is and run the command $: python manage.py runserver
+
+ShivamPatel17
