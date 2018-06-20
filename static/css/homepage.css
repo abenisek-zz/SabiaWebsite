@@ -1,8 +1,21 @@
-head {
-  font-size: 50px;
-  color: blue;
+#register-btn{
+  background-color: gold;
+  border-radius: 5px;
+  color: black
+  padding-top:10px;
 }
-p{
-  font-size: 200px;
-  color:green;
+#register-btn-txt{
+  color:black;
+}
+#nav-css a{
+  font-size: 18px;
+  color:black;
+  display:inline;
+}
+#nav-css p{
+  font-size:12px;
+  padding-top:30px;
+}
+#nav-css #dropdownMenuLink{
+
 }
