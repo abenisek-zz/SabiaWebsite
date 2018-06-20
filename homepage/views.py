@@ -8,7 +8,6 @@ from django.http import HttpResponseRedirect
 from .models import *
 from django.template import loader
 from .forms import *
-
 # Create your views here.
 class AddAvailabilityView(TemplateView):
     def get(self,request,**kwargs):
@@ -42,7 +41,6 @@ class DashboardView(TemplateView):
             print(availability)
             return render(request, 'homepage/dashboard.html', {'availability':availability, 'user':user,'userType':str(user.UserTypeID)})
         return render(request, 'homepage/dashboard.html')
-
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
