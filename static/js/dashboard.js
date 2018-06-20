@@ -1,14 +1,18 @@
 $(document).ready(function () {
   var csrftoken = getCookie('csrftoken');
+  $('#about_us').click(function(event){
+    window.location.href="aboutUs/"
+  })
   $('#add_subject').click(function(event){
       window.location.href="addSubject/"
   });
   $('#instructor_info').click(function(event){
     window.location.href="addAvailability/"
   })
-  $('#about_us').click(function(event){
-    window.location.href="aboutUs/"
+  $('#schedule_session').click(function(event){
+    window.location.href="scheduleSession/"
   })
+
   $.ajaxSetup({
       beforeSend: function(xhr, settings) {
           if (!csrfSafeMethod(settings.type) && !this.crossDomain) {

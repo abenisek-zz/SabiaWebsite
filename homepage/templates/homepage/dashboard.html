@@ -30,12 +30,12 @@
 </head>
 
 <body>
-  <button id= "schedule_session" type = "button"><a href = '/scheduleSession'>Scheduled a session</a></button>
+    <button id= "schedule_session" type = "button">Schedule a Session</button>
   {% if userType == "Instructor" %}
     <button id = "instructor_info" type = "button">Add availability</button>
     <button id = "add_subject" type = "button"> Add Subject </button>
-    <button id = "about_us" type = "button"> About Us </button>
   {% endif %}
+    <button id = "about_us" type = "button"> About Us </button>
 
   {% if availability %}
     <ul>

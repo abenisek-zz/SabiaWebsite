@@ -34,7 +34,6 @@ class AboutUsView(TemplateView):
     def get(self, request, **kwargs):
         return render (request,'homepage/aboutUs.html')
 
-
 class DashboardView(TemplateView):
     def get(self, request, **kwargs):
         user = request.session.get('user')
@@ -48,6 +47,12 @@ class DashboardView(TemplateView):
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
             return render (request, 'homepage/homepage.html')
+
+class ScheduleSessionView(TemplateView):
+    def get(self, request, **kwargs):
+            user = request.session.get('user')
+            subject_form = SubjectForm()
+            return render (request, 'homepage/scheduleSession.html',{"user":user, "subject_form": subject_form})
 
 class SubmitTutorFormPageView(TemplateView):
     def get(self, request, **kwargs):
