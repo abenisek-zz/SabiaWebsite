@@ -50,6 +50,20 @@ Scheduling a session for {{user.FirstName}}
         });
     </script>
 </div>
+<div>
+  Options:
+  {% if sessions %}
+    <ul>
+    {% for s in sessions %}
+      <button>{{s.FirstName}}</button>
+    {% endfor %}
+    </ul>
+
+
+  {% else %}
+    <p>No available sessions for the search. Try something else</p>
+  {% endif %}
+</div>
   {%load staticfiles%}
   <script type="text/javascript" src="{% static "/js/scheduling.js"%}"></script>
   <script type="text/javascript" src="{% static "/bower_components/jquery/dist/jquery.min.js"%}"></script>

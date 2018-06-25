@@ -50,7 +50,8 @@ class ScheduleSessionView(TemplateView):
     def get(self, request, **kwargs):
             user = request.session.get('user')
             subject_form = SubjectForm()
-            return render (request, 'homepage/scheduleSession.html',{"user":user, "subject_form": subject_form})
+            options = request.session.get('options')
+            return render (request, 'homepage/scheduleSession.html',{"user":user, "subject_form": subject_form, 'sessions':options})
 
 class SubmitTutorFormPageView(TemplateView):
     def get(self, request, **kwargs):
@@ -202,3 +203,12 @@ def submitTutorForm(request):
     else:
         form = TutorForm()
     return render(request, 'homepage/tutorFormBasic.html',{'form':form})
+
+def searchSessions(request):
+    if request.method == 'POST':
+        HttpResponseRedirect('/allTutors')
+        subjectID = (request.POST.get('subject'))
+        s = '''SELECT * FROM homepage_user h, homepage_subject_user su WHERE h."UserTypeID_id" = 2 and h."id" = su."User_id" and su."Subject_id"='''+subjectID+''';'''
+        sessions = User.objects.raw(s)
+        request.session['options']=sessions
+        return render(request, 'homepage/tutorFormBasic.html',{'sessions':sessions})

@@ -14,8 +14,15 @@ $(document).ready(function () {
     var time_start = $('#timestartpicker').data("DateTimePicker").date().format('HH:mm');
     var time_end  = $('#timeendpicker').data("DateTimePicker").date().format('HH:mm');
 
-    alert(subject);
-    alert(date);
+    $.ajax({
+      type:"POST",
+      url: "search/",
+      data: { CSRF: csrftoken,'subject':subject, 'date': date, 'time_start': time_start, 'time_end' : time_end},
+      success: function(data){
+        window.location.replace("/dashboard/scheduleSession/");
+      }
+
+    });
 
   });
 });

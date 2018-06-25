@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  alert("availability js loaded");
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
       beforeSend: function(xhr, settings) {
@@ -18,7 +19,7 @@ $(document).ready(function () {
       url: "submit/",
       data: { CSRF: csrftoken, 'date': date, 'time_start': time_start, 'time_end' : time_end},
       success: function(data){
-        window.location.href = "dashboard/";
+        window.location.replace("/dashboard");
       }
 
     });

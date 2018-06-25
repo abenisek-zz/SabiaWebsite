@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^dashboard/addSubject/submit/$', views.addSubject),
     url(r'^dashboard/aboutUs/$',views.AboutUsView.as_view()),
     url(r'^dashboard/scheduleSession/$',views.ScheduleSessionView.as_view()),
+    url(r'^dashboard/scheduleSession/search/$',views.searchSessions),
+    url(r'^dashboard/addAvailability/submit/$',views.addAvailability),
 
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
