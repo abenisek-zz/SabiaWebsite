@@ -11,11 +11,11 @@ class AccountUserTemp(models.Model):
         return self.first_name + " " +self.last_name
 
 class Availability(models.Model):
-    User= models.ForeignKey('User', on_delete = models.CASCADE, null = True)
+    User = models.ForeignKey('User', on_delete = models.CASCADE, null = True)
     Start = models.DateTimeField()
     End = models.DateTimeField()
     def __str__(self):
-        return str(self.Start)
+        return str(self.Start) +str(self.User)
 
 class Email(models.Model):
     Email = models.EmailField(max_length=200)

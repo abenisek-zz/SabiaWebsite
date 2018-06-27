@@ -11,13 +11,12 @@ $(document).ready(function () {
     alert("we in here # seraching");
     var subject = $('#id_subject').val();
     var date = $('#datepicker').data("DateTimePicker").date().format('YYYY-MM-DD');
-    var time_start = $('#timestartpicker').data("DateTimePicker").date().format('HH:mm');
-    var time_end  = $('#timeendpicker').data("DateTimePicker").date().format('HH:mm');
+    
 
     $.ajax({
       type:"POST",
       url: "search/",
-      data: { CSRF: csrftoken,'subject':subject, 'date': date, 'time_start': time_start, 'time_end' : time_end},
+      data: { CSRF: csrftoken,'subject':subject, 'date': date},
       success: function(data){
         window.location.replace("/dashboard/scheduleSession/");
       }

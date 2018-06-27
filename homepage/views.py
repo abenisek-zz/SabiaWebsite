@@ -208,7 +208,14 @@ def searchSessions(request):
     if request.method == 'POST':
         HttpResponseRedirect('/allTutors')
         subjectID = (request.POST.get('subject'))
+        date = (request.POST.get('date'))
+        print(subjectID)
+        print(date)
         s = '''SELECT * FROM homepage_user h, homepage_subject_user su WHERE h."UserTypeID_id" = 2 and h."id" = su."User_id" and su."Subject_id"='''+subjectID+''';'''
         sessions = User.objects.raw(s)
         request.session['options']=sessions
         return render(request, 'homepage/tutorFormBasic.html',{'sessions':sessions})
+
+'''SELECT * FROM homepage_user h, homepage_subject_user su, homepage_availability a1
+WHERE h."UserTypeID_id" = 2 and h."id" = su."User_id" and su."User_id" = a1."User_id"
+and su."Subject_id"= 4 and CAST(a1."Start" as DATE) = '20180629' ; '''
