@@ -7,15 +7,28 @@
 #register-btn-txt{
   color:black;
 }
+
 #nav-css a{
+  font-family: roboto;
   font-size: 18px;
   color:black;
   display:inline;
+  font-weight:bold;
 }
 #nav-css p{
+    font-family: roboto;
   font-size:12px;
   padding-top:30px;
+  font-weight:lighter;
 }
 #nav-css #dropdownMenuLink{
 
+}
+
+/*
+  Styling below is incomplete
+*/
+.main-background{
+  background-image:url("../img/school_bus.jpg");
+  height:100px;
 }
