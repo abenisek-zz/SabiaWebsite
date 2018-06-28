@@ -36,7 +36,12 @@ class Location(models.Model):
     def __str__(self):
         return self.Location
 
-class SessionStatus(models.Model):
+class Session(models.Model):
+    Instructor = models.ForeignKey('User', on_delete = models.SET_NULL, null = True, related_name="instructor")
+    Student = models.ForeignKey('User', on_delete = models.SET_NULL, null = True, related_name='student')
+    Start = models.DateTimeField()
+    End = models.DateTimeField()
+    Subject = models.ForeignKey('Subject', on_delete = models.SET_NULL, null = True)
     Status = models.CharField(max_length = 200)
 
 class Subject_User(models.Model):
