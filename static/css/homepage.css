@@ -1,28 +1,32 @@
 #register-btn{
-  background-color: gold;
-  border-radius: 5px;
+  background-color:rgb(253,181,20);
+  border-radius: 3px;
   color: black
-  padding-top:10px;
+  /*padding-top:10px;*/
+  padding:20px;
+  padding-left:25;
+  padding-right:25;
 }
 #register-btn-txt{
-  color:black;
+  color:rgb(85,85,85);
 }
 
 #nav-css a{
   font-family: roboto;
   font-size: 18px;
-  color:black;
+  color:rgb(85,85,85);
   display:inline;
-  font-weight:bold;
+  font-weight:medium;
 }
 #nav-css p{
-    font-family: roboto;
+  font-family: roboto;
   font-size:12px;
   padding-top:30px;
   font-weight:lighter;
 }
-#nav-css #dropdownMenuLink{
-
+#nav-css{
+  background-color:white;
+  height:65px;
 }
 
 /*
@@ -30,5 +34,56 @@
 */
 .main-background{
   background-image:url("../img/school_bus.jpg");
-  height:100px;
+  height:800px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.main-background-layer{
+  background-color: rgb(85,85,85,0.5);
+}
+
+.header-tagline{
+  margin-top:180px;
+  color:white;
+}
+
+.header-tagline h1{
+  font-weight:bold;
+  font-size:32pt;
+}
+
+.header-tagline p{
+  font-weight:regular;
+  font-size:18;
+}
+
+
+body{
+  font-family:roboto;
+}
+
+#extra-tag{
+  margin-top:30px
+}
+
+#main-action{
+  border-radius:3pt;
+  font-weight:bold;
+  color:rgb(85,85,85);
+  font-size:15pt;
+}
+
+.hiw{
+  margin:2pt;
+  background-color:rgb(242,242,243);
+  color:rgb(85,85,85);
+}
+
+.hiw h3{
+  font-weight:medium;
+}
+
+.section-header{
+  align-content:center;
 }
