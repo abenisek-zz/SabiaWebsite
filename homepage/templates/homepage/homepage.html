@@ -16,7 +16,7 @@
           <ul class="navbar-nav mr-auto">
               <a class="navbar-brand" href="#">
                 {%load staticfiles%}
-                <img src="{% static '/img/Sabia_Final.png' %}" width=80 height="50" alt="">
+                <img src="{% static '/img/sabiaLogo.svg' %}" width=80 height="50" alt="">
 
               </a>
               <p>Education Innovated<p>
@@ -25,7 +25,13 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link" href="#">Students</a>
+                  <div class="dropdown">
+                    <a class="btn" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">K-12 Students</a>
+                      <a class="dropdown-item" href="#">Adult Learners</a>
+                    </div>
+                  </div>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Parents</a>
@@ -85,14 +91,60 @@
   <body>
     <div class = "container-fluid">
       <div class = "row main-background">
-          <div class ="col-lg-8 col-lg-offset-2">
-            <h1>Learning shouldn’t end at the bus stop.</h1>
+        <div class= "main-background-layer">
+          <div class ="col-lg-6 offset-lg-3 col-md-8 offset-md-2 header-tagline">
+            <h1>Learning shouldn’t end at the bus stop!</h1>
             <p>Get the best out-of-school support with an on-demand Sabia Academic Instructor.
               Our innovative peer-to-peer instruction model goes easy on your wallet and lets you
               learn with us whenever you want, wherever you want. At Sabia, we work hard everyday
               to craft an experience for you that is fun and delivers promising results.
             </p>
+            <button class="btn" id="main-action">About Our Sessions</button>
+            <br />
+            <p id="extra-tag">
+              Not a parent or student.<span>Check out</span> our teaching opportunities.
+            </p>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2 class="section-header">How Our Session Work</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="row">
+            <div class="col-lg-4 hiw">
+              <div class="hiw">
+                <span></span>
+                <h3>Find Your Instructor</h3>
+                <p>
+                  Our website takes into account your schedule, subject, area, and a variety of preferences to find you the perfect turor.
+                </p>
+            </div>
+            </div>
+            <div class="col-lg-4 hiw">
+              <div class="hiw">
+                <span></span>
+                <h3>Schedule a Session</h3>
+                <p>
+                  Select a date that works for you. Because we want to you to be 100% satisfied, Sabia gives you the first session free!
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 hiw">
+              <div class="hiw">
+                <span></span>
+                <h3>Begin Learning</h3>
+                <p>
+                  After your first session, Sabia will help to creat a schedule that works for both you an your instructor. We will track every session so that students, parents, and instructors can monitor your continuous progress.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
       </div>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
